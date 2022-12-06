@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/05/26 11:24:13 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 12:03:45 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+void	ft_bzero(void *s, size_t n)
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
+	size_t	i;
+	char	*tmp;
 
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
+	tmp = s;
+	i = 0;
+	while (i < n)
 	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
+		tmp[i] = '\0';
+		i++;
 	}
 }

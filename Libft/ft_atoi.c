@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/05/26 11:23:58 by engo              #+#    #+#             */
+/*   Updated: 2021/05/26 11:46:19 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+int	ft_atoi(const char *str)
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
+	int	sign;
+	int	nb;
 
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
+	sign = 1;
+	while (*str == ' ' || (*str >= 9 && *str <= 13))
+		str++;
+	if (*str == '+' || *str == '-')
 	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
+		if (*str == '-')
+			sign *= -1;
+		str++;
 	}
+	nb = 0;
+	while (*str >= '0' && *str <= '9')
+	{
+		nb = nb * 10 + *str - 48;
+		str++;
+	}
+	return (nb * sign);
 }

@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/06/06 14:20:23 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 14:20:26 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
+	unsigned char	*s_tmp;
+	unsigned char	c_tmp;
+	size_t			i;
 
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
+	s_tmp = (unsigned char *)s;
+	c_tmp = (unsigned char)c;
+	i = 0;
+	while (i < n)
 	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
+		if (s_tmp[i] == c_tmp)
+			return (&s_tmp[i]);
+		i++;
 	}
+	return (NULL);
 }

@@ -1,31 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2022/12/06 00:22:23 by engo              #+#    #+#             */
+/*   Updated: 2022/12/06 01:49:13 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(int ac, char **av, char **envp)
-{
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
+// void	built_pwd(char *str)
+// {
+// 	char	*dest;
+// }
 
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
+void	built_cd(char *str)
+{
+	char	*dest;
+	int		i;
+
+	i = 0;
+	dest = &str[i + 3];
+	if (chdir(dest) != 0)
 	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
+		ft_putstr_fd("mini: cd: ", 2);
+		ft_putstr_fd(dest, 2);
+		ft_putstr_fd(": No such file or directory \n", 2);
 	}
 }
+
+void	check_builtin(char *str)
+{
+	if (ft_strncmp(str, "cd", ft_strlen("cd")) == 0)
+		built_cd(str);
+}
+

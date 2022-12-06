@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/06/06 14:23:58 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 14:24:04 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
+	unsigned int	i;
+	char			*dest;	
+	int				len;
 
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
+	if (!s || !f)
+		return (NULL);
+	len = ft_strlen(s);
+	i = 0;
+	dest = malloc(sizeof(char) * len + 1);
+	if (!dest)
+		return (NULL);
+	while (s[i])
 	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
+		dest[i] = (*f)(i, (char)s[i]);
+		i++;
 	}
+	dest[i] = 0;
+	return (dest);
 }

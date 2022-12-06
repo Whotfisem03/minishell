@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2022/12/06 01:37:44 by engo              #+#    #+#             */
+/*   Updated: 2022/12/06 01:53:05 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	main(int ac, char **av, char **envp)
+int	tab_count(char **str)
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
+	int	i;
 
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+char	**ft_env(char **envp)
+{
+	char	**dest;
+	int		i;
+
+	dest = malloc(sizeof(char) * tab_count(envp) + 1);
+	while (envp[i])
 	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
+		dest[i] = envp[i];
+		i++;
 	}
 }

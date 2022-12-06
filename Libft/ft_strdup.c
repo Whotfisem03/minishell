@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/05/26 11:27:04 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 14:23:15 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+char	*ft_strdup(const char *s1)
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
+	int		i;
+	char	*dest;
 
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
+	dest = malloc(sizeof(char) * ft_strlen(s1) + 1);
+	if (!dest)
+		return (0);
+	i = 0;
+	while (s1[i] != 0)
 	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
+		dest[i] = s1[i];
+		i++;
 	}
+	dest[i] = 0;
+	return (dest);
 }

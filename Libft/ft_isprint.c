@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/05/26 11:25:51 by engo              #+#    #+#             */
+/*   Updated: 2021/05/26 11:25:52 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+int	ft_isprint(int c)
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
-
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
-	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
-	}
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
 }

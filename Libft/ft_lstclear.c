@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/06/06 14:19:31 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 14:19:33 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
+	t_list	*new;
+	t_list	*lst_tmp;
 
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
+	lst_tmp = *lst;
+	while (lst_tmp)
 	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
+		new = lst_tmp;
+		lst_tmp = lst_tmp->next;
+		del(new->content);
+		free(new);
 	}
+	*lst = NULL;
 }

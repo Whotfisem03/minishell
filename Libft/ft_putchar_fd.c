@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/05/26 11:26:20 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 14:21:17 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+void	ft_putchar_fd(char c, int fd)
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
-
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
-	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
-	}
+	write(fd, &c, 1);
 }

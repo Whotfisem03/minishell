@@ -1,31 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 01:59:42 by engo             ###   ########.fr       */
+/*   Created: 2021/05/26 11:28:01 by engo              #+#    #+#             */
+/*   Updated: 2021/06/06 14:25:02 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minishell.h"
+#include "libft.h"
 
-int	main(int ac, char **av, char **envp)
+int	ft_toupper(int c)
 {
-	char	*str;
-	(void)ac;
-	(void)av;
-	(void)envp;
-
-	init_struct()
-	str = NULL;
-	printf("%d\n", tab_count(envp));
-	while (1)
-	{
-		str = readline("mini> ");
-		check_builtin(str);
-		add_history(str);
-	}
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }
