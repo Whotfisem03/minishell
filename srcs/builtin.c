@@ -25,11 +25,7 @@ void	built_cd(char *str)
 	i = 0;
 	dest = &str[i + 3];
 	if (chdir(dest) != 0)
-	{
-		ft_putstr_fd("mini: cd: ", 2);
-		ft_putstr_fd(dest, 2);
-		ft_putstr_fd(": No such file or directory \n", 2);
-	}
+		printf("mini: cd: %s: No such file or directory \n", dest);
 }
 
 void	check_builtin(char *str)

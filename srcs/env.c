@@ -33,4 +33,5 @@ char	**ft_env(char **envp)
 		dest[i] = envp[i];
 		i++;
 	}
+	return (dest);
 }

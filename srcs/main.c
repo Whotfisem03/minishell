@@ -19,7 +19,7 @@ int	main(int ac, char **av, char **envp)
 	(void)av;
 	(void)envp;
 
-	init_struct()
+	// init_struct();
 	str = NULL;
 	printf("%d\n", tab_count(envp));
 	while (1)
