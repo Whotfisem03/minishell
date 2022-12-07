@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:57:48 by engo              #+#    #+#             */
-/*   Updated: 2022/12/06 02:00:23 by engo             ###   ########.fr       */
+/*   Updated: 2022/12/07 01:08:50 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_gen
 }			 t_gen;
 
 
-void	check_builtin(char *str);
+void	check_builtin(char *str, char **envp);
 int		tab_count(char **str);
 
 
