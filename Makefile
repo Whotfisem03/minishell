@@ -15,6 +15,7 @@ SRCS =		main.c \
 			builtin.c \
 			env.c \
 			init_struct.c \
+			builtin2.c \
 			
 		
 

@@ -1,47 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_struct.c                                      :+:      :+:    :+:   */
+/*   builtin2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 01:56:12 by engo              #+#    #+#             */
-/*   Updated: 2022/12/10 17:44:54 by vloth            ###   ########.fr       */
+/*   Created: 2022/12/10 15:22:52 by vloth             #+#    #+#             */
+/*   Updated: 2022/12/10 15:29:53 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-int	pipe_or_not(char *str)
+void built_pwd(void)
 {
-	int	i;
-	int pipe;
+	char buf[100];
 
-	pipe = 0;
-	i = -1;
-	while (str[++i])
-	{
-		if (str[i] == '|')
-		{
-			if (str[i + 1] == 0)
-				return (-1);
-			if (str[i + 1] == '|')
-			{
-				if (str[i + 1] == 0)
-					return (-1);
-				i++;
-			}
-			pipe++;
-		}
-	}
-	return (pipe);
-}
-
-t_data	init_parsing(char *str)
-{
-	t_data	init;
-	
-	init.nbpipe = pipe_or_not(str);
-	init.nbcmd = init.nbpipe + 1;
-	return (init);
+	getcwd(buf, 100);
+	printf("%s\n", buf);
 }

@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:57:48 by engo              #+#    #+#             */
-/*   Updated: 2022/12/07 01:08:50 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/10 17:20:56 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,31 @@
 # include <termios.h>
 # include "libft.h"
 
-typedef struct s_gen
+//typedef struct s_token
+//{
+//	
+//}	t_token;
+
+//typedef struct s_cmd
+//{
+//	char 			*cmd;
+//	struct t_cmd	*back;
+//	struct t_cmd	*next:	
+//}	t_cmd;
+
+typedef struct t_data
 {
-	char	**envp;
-}			 t_gen;
+	int 			nbcmd;
+	int				nbpipe;
+	//struct t_cmd	*begin;
+	//struct t_cmd	*end;
+}	t_data;
 
 
 void	check_builtin(char *str, char **envp);
 int		tab_count(char **str);
-
+void	built_pwd(void);
+t_data	init_parsing(char *str);
 
 
 #endif

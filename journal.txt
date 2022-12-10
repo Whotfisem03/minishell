@@ -1,0 +1,11 @@
+Les builtins
+
+-echo (option -n) [~]
+-cd [x]
+-pwd [x]
+-export []
+-unset []
+-env [x]
+-exit []
+
+
