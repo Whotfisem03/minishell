@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/11 14:55:14 by vloth             #+#    #+#             */
-/*   Updated: 2022/12/11 16:41:05 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/11 18:42:36 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,17 @@ t_cmd	*pop_front_dlist(t_data *l)
 {
 	t_cmd	*tmp;
 
-	if (l->nbcmd == 1)
+	if (l->len == 1)
 	{
+		l->len--;
 		tmp = l->begin;
-		//free(tmp->cmd);
 		l->begin = NULL;
 		l->end = NULL;
 	}
-	else if (l->nbcmd > 1)
+	else if (l->len > 1)
 	{
-
+		l->len--;
 		tmp = l->begin;
-		//free(tmp->cmd);
 		l->begin = l->begin->next;
 		l->begin->back = NULL;
 		l->nbcmd--;

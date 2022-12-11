@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:56:12 by engo              #+#    #+#             */
-/*   Updated: 2022/12/11 14:45:52 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/11 18:45:22 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_data	*init_parsing(char *str)
 		return (NULL);
 	init->nbpipe = pipe_or_not(str);
 	init->nbcmd = init->nbpipe + 1;
+	init->len = 0;
 	init->begin = NULL;
 	init->end = NULL;
 	return (init);
@@ -54,22 +55,22 @@ t_data	*init_parsing(char *str)
 void	init_cmd(t_data *data, char *str)
 {
 	t_cmd	*tmp;
-	static int i = 0;
 
 	tmp = malloc(sizeof(t_cmd));
 	if (!tmp)
 		return ;
-	if (data->nbcmd == 1 || i == 0)
+	if (data->len == 0)
 	{
-		i++;
+		data->len++;
 		tmp->cmd = str;
 		data->begin = tmp;
 		data->end = tmp;
 		tmp->back = NULL;
 		tmp->next = NULL;
 	}
-	else if (data->nbcmd > 1)
+	else if (data->nbcmd > 1 && data->len >= 1)
 	{
+		data->len++;
 		tmp->cmd = str;
 		data->end->next = tmp;
 		tmp->back = data->end;

@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:57:48 by engo              #+#    #+#             */
-/*   Updated: 2022/12/11 15:09:02 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/11 18:39:19 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ typedef struct t_data
 {
 	int 			nbcmd;
 	int				nbpipe;
+	int				len;
 	struct t_cmd	*begin;
 	struct t_cmd	*end;
 }	t_data;
