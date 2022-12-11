@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/10 17:44:29 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/11 13:32:48 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,16 @@ int	main(int ac, char **av, char **env)
 	(void)ac;
 	(void)av;
 	(void)env;
-	t_data	data;
+	t_data	*data;
 
 	str = NULL;
 	while (1)
 	{
 		str = readline("mini> ");
 		data = init_parsing(str);
+		init_one_cmd(data, str);
+		t_cmd *cmd = data->begin;
+		printf("%s\n", cmd->cmd);
 		add_history(str);
 	}
 }
