@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:56:12 by engo              #+#    #+#             */
-/*   Updated: 2022/12/11 13:37:49 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/11 14:45:52 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,46 @@ t_data	*init_parsing(char *str)
 	return (init);
 }
 
-void	init_one_cmd(t_data *data, char *str)
+void	init_cmd(t_data *data, char *str)
 {
 	t_cmd	*tmp;
+	static int i = 0;
 
 	tmp = malloc(sizeof(t_cmd));
 	if (!tmp)
 		return ;
-	if (data->nbcmd == 1)
+	if (data->nbcmd == 1 || i == 0)
 	{
+		i++;
 		tmp->cmd = str;
 		data->begin = tmp;
 		data->end = tmp;
 		tmp->back = NULL;
 		tmp->next = NULL;
+	}
+	else if (data->nbcmd > 1)
+	{
+		tmp->cmd = str;
+		data->end->next = tmp;
+		tmp->back = data->end;
+		data->end = tmp;
+	}
+}
+
+void	init_struct(char *str, t_data *data)
+{
+	int	i;
+	char **cmd_pipe;
+
+	i = -1;
+	if (data->nbcmd == -1 || data->nbcmd == 0)
+		return ;
+	else if (data->nbcmd == 1)
+		init_cmd(data, str);	
+	else if (data->nbcmd > 1)
+	{
+		cmd_pipe = ft_split(str, '|');
+		while (cmd_pipe[++i])
+			init_cmd(data, cmd_pipe[i]);	
 	}
 }

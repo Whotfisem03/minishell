@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:57:48 by engo              #+#    #+#             */
-/*   Updated: 2022/12/11 13:33:33 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/11 15:09:02 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 //	
 //}	t_token;
 
-typedef struct s_cmd
+typedef struct t_cmd
 {
 	char 			*cmd;
 	struct t_cmd	*back;
@@ -46,8 +46,8 @@ typedef struct t_data
 {
 	int 			nbcmd;
 	int				nbpipe;
-	t_cmd			*begin;
-	t_cmd			*end;
+	struct t_cmd	*begin;
+	struct t_cmd	*end;
 }	t_data;
 
 
@@ -55,6 +55,8 @@ void	check_builtin(char *str, char **envp);
 int		tab_count(char **str);
 void	built_pwd(void);
 t_data	*init_parsing(char *str);
-void	init_one_cmd(t_data *data, char *str);
+void	init_cmd(t_data *data, char *str);
+void	init_struct(char *str, t_data *data);
+void	free_list(t_data *l);
 
 #endif

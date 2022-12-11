@@ -16,7 +16,7 @@ SRCS =		main.c \
 			env.c \
 			init_struct.c \
 			builtin2.c \
-			
+			free.c \
 		
 
 SRCS_DIR = ./srcs
@@ -37,7 +37,7 @@ ${NAME}: ${OBJS}
 
 $(DIR_OBJ)/%.o: $(SRCS_DIR)/%.c
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) $(DIR_INC) -o $@ -c $< -MMD
+	$(CC) $(CFLAGS) $(DIR_INC) -o $@ -c $< -MMD -g
 
 clean:
 		rm -rf ${DIR_OBJ}
