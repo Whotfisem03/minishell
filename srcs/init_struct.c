@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_struct.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:56:12 by engo              #+#    #+#             */
-/*   Updated: 2022/12/11 18:45:22 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/13 01:15:57 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	pipe_or_not(char *str)
 t_data	*init_parsing(char *str)
 {
 	t_data	*init;
-	
+
 	init = malloc(sizeof(*init));
 	if (!init)
 		return (NULL);
@@ -81,13 +81,13 @@ void	init_cmd(t_data *data, char *str)
 void	init_struct(char *str, t_data *data)
 {
 	int	i;
-	char **cmd_pipe;
+	char	**cmd_pipe;
 
 	i = -1;
 	if (data->nbcmd == -1 || data->nbcmd == 0)
 		return ;
 	else if (data->nbcmd == 1)
-		init_cmd(data, str);	
+		init_cmd(data, str);
 	else if (data->nbcmd > 1)
 	{
 		cmd_pipe = ft_split(str, '|');

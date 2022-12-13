@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/11 18:35:05 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/13 00:49:58 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ int	main(int ac, char **av, char **env)
 		str = readline("mini> ");
 		data = init_parsing(str);
 		init_struct(str, data);
-		
 		caca = data->begin;
 		while (caca)
 		{
 			printf("%s\n", caca->cmd);
 			caca = caca->next;
 		}
+		check_builtin(str, env);
 		free_list(data);
 		add_history(str);
 		free(str);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   builtin.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
+/*   By: engo <engo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 00:22:23 by engo              #+#    #+#             */
-/*   Updated: 2022/12/10 15:55:16 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/13 01:15:19 by engo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 int	count_echo(char *str)
 {
-	int i;
-	int n;
+	int	i;
+	int	n;
 
 	i = 5;
 	n = 0;
@@ -24,14 +24,16 @@ int	count_echo(char *str)
 		n++;
 		i++;
 	}
-	return n;
+	return (n);
 }
 
 void	built_echo(char *str)
 {
-	char *line;
-	char *grand_line;
-	int y = count_echo(str);
+	char	*line;
+	char	*grand_line;
+	int		y;
+
+	y = count_echo(str);
 	line = ft_substr(str, 5, y);
 	grand_line = ft_strtrim(line, " ");
 	printf("%s\n", grand_line);
@@ -45,17 +47,21 @@ void	built_cd(char *str)
 	i = 0;
 	dest = &str[i + 3];
 	if (chdir(dest) != 0)
-		printf("mini: cd: %s: No such file or directory \n", dest);
+	{
+		ft_putstr_fd("mini: cd: ", 2);
+		ft_putstr_fd(dest, 2);
+		ft_putstr_fd(": No such file or directory \n", 2);
+	}
 }
 
 void	built_env(char **env, char *str)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	if (ft_strlen(str) != 3)
 	{
-		ft_putstr_fd("env: No file or directory of this type \n", 2);
+		ft_putstr_fd("mini: env: No file or directory of this type \n", 2);
 		return ;
 	}
 	while (env[++i])
