@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:56:12 by engo              #+#    #+#             */
-/*   Updated: 2022/12/11 18:45:22 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/16 20:49:10 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	pipe_or_not(char *str)
 		{
 			if (str[i + 1] == 0)
 				return (-1);
-			if (str[i + 1] == '|')
+			else if (str[i + 1] == '|')
 			{
 				if (str[i + 1] == 0)
 					return (-1);
@@ -41,7 +41,7 @@ t_data	*init_parsing(char *str)
 {
 	t_data	*init;
 	
-	init = malloc(sizeof(*init));
+	init = malloc(sizeof(t_data));
 	if (!init)
 		return (NULL);
 	init->nbpipe = pipe_or_not(str);
@@ -65,10 +65,11 @@ void	init_cmd(t_data *data, char *str)
 		tmp->cmd = str;
 		data->begin = tmp;
 		data->end = tmp;
-		tmp->back = NULL;
+		//tmp->back = NULL;
 		tmp->next = NULL;
 	}
-	else if (data->nbcmd > 1 && data->len >= 1)
+	//else if (data->nbcmd > 1 && data->len >= 1)
+	else
 	{
 		data->len++;
 		tmp->cmd = str;
