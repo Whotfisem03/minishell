@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:56:12 by engo              #+#    #+#             */
-/*   Updated: 2022/12/16 20:49:10 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/16 20:56:37 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,13 +82,13 @@ void	init_cmd(t_data *data, char *str)
 void	init_struct(char *str, t_data *data)
 {
 	int	i;
-	char **cmd_pipe;
+	char	**cmd_pipe;
 
 	i = -1;
 	if (data->nbcmd == -1 || data->nbcmd == 0)
 		return ;
 	else if (data->nbcmd == 1)
-		init_cmd(data, str);	
+		init_cmd(data, str);
 	else if (data->nbcmd > 1)
 	{
 		cmd_pipe = ft_split(str, '|');
