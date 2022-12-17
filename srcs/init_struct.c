@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 01:56:12 by engo              #+#    #+#             */
-/*   Updated: 2022/12/16 20:56:37 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/17 10:52:40 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,19 @@ void	init_struct(char *str, t_data *data)
 		while (cmd_pipe[++i])
 			init_cmd(data, cmd_pipe[i]);	
 	}
+}
+
+int	cmd_trim(t_data *d)
+{
+	t_cmd	*tmp;
+
+	tmp = d->begin;
+	while (tmp)
+	{
+		tmp->cmd = ft_strtrim(tmp->cmd, " ");
+		if (tmp->cmd == NULL)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }

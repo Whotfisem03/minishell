@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/16 20:57:31 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/17 11:13:49 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	main(int ac, char **av, char **env)
 		add_history(str);
 		data = init_parsing(str);
 		init_struct(str, data);
+		if (cmd_trim(data))
+			return 1;
 		caca = data->begin;
 		while(caca != NULL)
 		{

@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:57:48 by engo              #+#    #+#             */
-/*   Updated: 2022/12/12 03:36:11 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/17 10:49:33 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,6 @@ t_data	*init_parsing(char *str);
 void	init_cmd(t_data *data, char *str);
 void	init_struct(char *str, t_data *data);
 void	free_list(t_data *l);
+int		cmd_trim(t_data *d);
 
 #endif
