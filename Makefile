@@ -17,6 +17,7 @@ SRCS =		main.c \
 			init_struct.c \
 			builtin2.c \
 			free.c \
+			init_redir.c \
 		
 
 SRCS_DIR = ./srcs

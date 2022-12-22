@@ -6,7 +6,7 @@
 /*   By: vloth <vloth@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 23:55:19 by engo              #+#    #+#             */
-/*   Updated: 2022/12/17 11:13:49 by vloth            ###   ########.fr       */
+/*   Updated: 2022/12/22 21:23:28 by vloth            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,12 @@
 int	main(int ac, char **av, char **env)
 {
 	char	*str;
+	t_data	*data;
+	t_cmd	*caca;
+
 	(void)ac;
 	(void)av;
 	(void)env;
-	t_data	*data;
-	t_cmd *caca;
-
 	str = NULL;
 	while (1)
 	{
@@ -29,11 +29,14 @@ int	main(int ac, char **av, char **env)
 		data = init_parsing(str);
 		init_struct(str, data);
 		if (cmd_trim(data))
-			return 1;
+			return (1);
+		redir_all(data);
 		caca = data->begin;
-		while(caca != NULL)
+		while (caca != NULL)
 		{
-			printf("nb de commande = %d\n", data->nbcmd);
+			printf("nb de r_in = %d\n", caca->r_in);
+			printf("nb de r_out = %d\n", caca->r_out);
+			printf("nb de rr_out = %d\n", caca->rr_out);
 			printf("%s\n", caca->cmd);
 			caca = caca->next;
 		}
